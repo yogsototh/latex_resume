@@ -6,9 +6,24 @@
 \newcommand{\years}[1]{\marginpar{\scriptsize #1}}
 
 % auteur : auteur{Yann Esposito}
-\newcommand{\auteur}[1]{{\hspace{-2em} \Huge \color{darkred} \fontspec[Scale=1.4, Ligatures={Common,Rare}]{Optima Bold}#1}\\[1cm]}
-% \newcommand{\auteur}[1]{{\hspace{-2em} \Huge \color{darkred} \fontspec[Scale=1.2]{Chopin Script}#1}\\[1cm]}
-% \newcommand{\auteur}[1]{{\hspace{-2em} \Huge \color{darkred} \fontspec[Scale=1.2]{URW Chancery L}#1}\\[1cm]}
+
+\newcommand{\setAuthorFont}[1]{
+\color{darkred} 
+\fontspec[
+    Ligatures={Common,Rare},
+    Variant=3,
+    Swashes={LineInitial, LineFinal}
+    ]
+    {Zapfino}\fontsize{30pt}{40pt}\selectfont #1}%
+\newcommand{\va}[1]{\fontspec[Variant=1]{Zapfino}#1}
+\newcommand{\vb}[1]{\fontspec[Variant=2]{Zapfino}#1}
+\newcommand{\vc}[1]{\fontspec[Variant=3]{Zapfino}#1}
+\newcommand{\vd}[1]{\fontspec[Variant=4]{Zapfino}#1}
+\newcommand{\ve}[1]{\fontspec[Variant=5]{Zapfino}#1}
+\newcommand{\vf}[1]{\fontspec[Variant=6]{Zapfino}#1}
+\newcommand{\vg}[1]{\fontspec[Variant=7]{Zapfino}#1}
+
+\newcommand{\auteur}[1]{{\hspace{-2em} \setAuthorFont{#1}}\\[1cm]}
 
 % adresse 
 % batiment, rue, complementAdresse, codePostal, ville, pays
