@@ -1,0 +1,114 @@
+% Yann Esposito
+%
+% Les commanes LaTeX pour les CV
+
+% années dans la marge
+\newcommand{\years}[1]{\marginpar{\scriptsize #1}}
+
+% auteur : auteur{Yann Esposito}
+\newcommand{\auteur}[1]{{\hspace{-2em} \Huge \color{darkred} \fontspec[Scale=1.4, Ligatures={Common,Rare}]{Optima Bold}#1}\\[1cm]}
+% \newcommand{\auteur}[1]{{\hspace{-2em} \Huge \color{darkred} \fontspec[Scale=1.2]{Chopin Script}#1}\\[1cm]}
+% \newcommand{\auteur}[1]{{\hspace{-2em} \Huge \color{darkred} \fontspec[Scale=1.2]{URW Chancery L}#1}\\[1cm]}
+
+% adresse 
+% batiment, rue, complementAdresse, codePostal, ville, pays
+% telephone, site, email, faxnum
+\newcommand{\batiment}[1]{\newcommand{\batimentValue}{#1}} % batiment
+\newcommand{\rue}[1]{\newcommand{\rueValue}{#1}} % rue
+\newcommand{\complementAdresse}[1]{\newcommand{\complementAdresseValue}{#1}} % complement
+\newcommand{\codePostal}[1]{\newcommand{\codePostalValue}{#1}} % code postal
+\newcommand{\ville}[1]{\newcommand{\villeValue}{#1}} % ville
+\newcommand{\pays}[1]{\newcommand{\paysValue}{#1}} % pays
+\newcommand{\telephone}[1]{\newcommand{\telephoneValue}{#1}} % téléphone
+\newcommand{\site}[1]{\newcommand{\siteValue}{#1}} % site
+\newcommand{\email}[1]{\newcommand{\emailValue}{#1}} % email
+\newcommand{\faxnum}[1]{\newcommand{\faxValue}{#1}} % fax
+
+% affichage de l'adresse
+\newcommand{\addressPrefix}{\Letter\hspace{.8em}}
+\newcommand{\afficheAdresse}{
+    \addressPrefix
+    \ifdefined\batimentValue
+        Bât. \batimentValue, 
+    \else\fi
+        \rueValue\\
+    \ifdefined\complementAdresseValue
+        \phantom{\addressPrefix}\complementAdresseValue \\
+    \else\fi
+        \phantom{\addressPrefix}\texttt{\codePostalValue}, \villeValue\ifdefined\paysValue
+    \\
+        \phantom{\addressPrefix}\paysValue
+    \else\fi
+    \\[.2cm]
+}
+
+% Affiche l'adresse ainsi que les informations de contacts
+\newcommand{\afficheContactInfos}{
+    \begin{minipage}[t]{0.5\linewidth}
+        \afficheAdresse
+    \end{minipage}
+    \begin{minipage}[t]{0.5\linewidth}
+        \begin{flushright}
+        \ifdefined\telephoneValue
+            \Telefon\hspace{1em} {\texttt \telephoneValue}
+        \else\fi
+        \ifdefined\faxValue
+            \\
+            \fax\hspace{1em} {\texttt \faxValue}
+        \else\fi
+        \ifdefined\emailValue
+            \href{mailto:\emailValue}{\texttt \emailValue}
+        \else\fi
+        \ifdefined\siteValue
+            \\
+            \href{\siteValue}{ \texttt \siteValue }
+        \else\fi
+        \end{flushright}
+    \end{minipage}
+}
+
+% Commandes pour les publications
+\newcommand{\articleTitle}[1]{\emph{#1}}
+\newcommand{\conf}[1]{{\textcolor{red}{#1}}}
+\newcommand{\journal}[1]{\textcolor{red}{#1}}
+\newcommand{\details}[1]{{\footnotesize #1}}
+
+% A commenter pour passer en mode détaillé pour les publications
+% A décommenter pour passer en mode cours pour les publications
+% \newcommand{\short}{Short publications}
+
+% paramètres:
+%   année
+%   titre
+%   auteur(s)
+%   conférence ou journal
+%   détails
+\newcommand{\article}[5]{
+    \ifdefined\short
+        \shortarticle{#1}{#2}{#3}{#4}{#5}
+    \else
+        \longarticle{#1}{#2}{#3}{#4}{#5}
+    \fi
+}
+\newcommand{\journalentry}[5]{
+    \ifdefined\short
+        \shortjournalentry{#1}{#2}{#3}{#4}{#5}
+    \else
+        \longjournalentry{#1}{#2}{#3}{#4}{#5}
+    \fi
+}
+
+\newcommand{\longarticle}[5]{
+    \noindent\years{#1}\begin{minipage}[t]{\linewidth}\articleTitle{#2},\\#3\\\conf{#4}, \details{#5}\end{minipage}\smallskip\\
+}
+
+\newcommand{\longjournalentry}[5]{
+    \noindent\years{#1}\begin{minipage}[t]{\linewidth}\articleTitle{#2},\\#3\\\journal{#4}, \details{#5}\end{minipage}\smallskip\\
+}
+
+\newcommand{\shortarticle}[5]{
+    [#4]
+}
+\newcommand{\shortjournalentry}[5]{
+    [#4~#1]
+}

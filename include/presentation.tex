@@ -1,0 +1,67 @@
+%------------------------------------
+% Paquet contenant les options de présentations
+% a savoir :
+%   Layout, couleurs, fontes
+%
+% Yann Esposito inpired by
+% Dario Taraborelli
+% Typesetting your academic CV in LaTeX
+%
+% URL: http://nitens.org/taraborelli/cvtex
+% DISCLAIMER: This template is provided for free and without any guarantee 
+% that it will correctly compile on your system if you have a non-standard  
+% configuration.
+%------------------------------------
+
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[12pt, a4paper]{article}
+\usepackage[french]{babel} % pour le français
+\usepackage{fontspec} % pour les fontes
+\usepackage{marvosym} % pour les symboles de téléphone, de lettre et de fax
+\usepackage{xltxtra}
+\usepackage{graphicx}
+
+%% pour le problème du nombre d'entrées trop grande
+%% utiliser la commande \FloatBarrier dans les blocs
+%% trops longs et décomenter l'include suivant
+% \usepackage{placeins}
+
+% DOCUMENT LAYOUT
+\usepackage{geometry} 
+\geometry{a4paper, textwidth=5.5in, textheight=8.5in, marginparsep=7pt, marginparwidth=.6in}
+\setlength\parindent{0in}
+
+% FONTS
+\defaultfontfeatures{Mapping=tex-text} % converts LaTeX specials (``quotes'' --- dashes etc.) to unicode
+\newcommand{\myRomanFont}{Fontin}
+\newcommand{\myMonoFont}{Monaco}
+\newcommand{\mySansFont}{Optima Bold}
+\setromanfont[]{\myRomanFont}
+\setmonofont[Scale=0.8]{\myMonoFont} 
+\setsansfont[Scale=0.9]{\mySansFont} 
+% ---- CUSTOM AMPERSAND
+\newcommand{\amper}{{\fontspec[Scale=.95]{Hoefler Text}\selectfont\itshape\&}}
+
+% HEADINGS
+\usepackage{sectsty} 
+\usepackage[normalem]{ulem} 
+\sectionfont{\sffamily\mdseries\large\underline} 
+\subsectionfont{\rmfamily\mdseries\scshape\normalsize} 
+\subsubsectionfont{\rmfamily\bfseries\upshape\normalsize} 
+
+% PDF SETUP
+% ---- FILL IN HERE THE DOC TITLE AND AUTHOR
+\usepackage[dvipdfm, bookmarks, colorlinks, breaklinks, pdftitle={Yann Esposito - CV},pdfauthor={Yann Esposito}]{hyperref}  
+
+% Mes couleurs persos (je n'utilise plus vraiment l'orange en fait)
+% Il faudrait utiliser #600 #d00 pour les rouges, 
+% #ddd et #666 pour les gris.
+\usepackage{color}
+\definecolor{orange}{rgb}{1,0.5,0}
+\definecolor{darkorange}{rgb}{0.5,0.25,0}
+\definecolor{red}{rgb}{0.6875,0,0}
+\definecolor{darkred}{rgb}{0.375,0,0}
+\hypersetup{linkcolor=red,citecolor=red,filecolor=black,urlcolor=red} 
+
