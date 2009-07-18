@@ -1,12 +1,27 @@
 % Yann Esposito
 %
 % Les commanes LaTeX pour les CV
+%
+% Des macros pour afficher correctement les contacts
+% Les publications (en mode 'full' ou 'short')
+%
+
 
 % années dans la marge
 \newcommand{\years}[1]{\marginpar{\scriptsize #1}}
 
-% auteur : auteur{Yann Esposito}
-
+% ======
+% AUTEUR
+% ======
+%
+% Simple : \auteur{François Dupond}
+% Expert : \auteur{\va{F}ran\vb{ç}ois \vg{D}upond}
+%
+% les macros \va, \vb, ... \vg
+% permette d'utiliser les variante des fontes
+%
+% Tout d'abord on sélectionne la fonte par défaut
+% pour l'auteur ici Zapfino (très jolie script)
 \newcommand{\setAuthorFont}[1]{
 \color{darkred} 
 \fontspec[
@@ -15,6 +30,10 @@
     Swashes={LineInitial, LineFinal}
     ]
     {Zapfino}\fontsize{30pt}{40pt}\selectfont #1}%
+% Zapfino possède de multiples variantes pour ses lettres
+% C'est pourquoi on en profite, une commande pour chaque
+% Variante. Pour modifier une lettre dans son nom
+% il suffit d'écrire \auteur{\vc{D}upond} par exemple
 \newcommand{\va}[1]{\fontspec[Variant=1]{Zapfino}#1}
 \newcommand{\vb}[1]{\fontspec[Variant=2]{Zapfino}#1}
 \newcommand{\vc}[1]{\fontspec[Variant=3]{Zapfino}#1}
@@ -22,10 +41,25 @@
 \newcommand{\ve}[1]{\fontspec[Variant=5]{Zapfino}#1}
 \newcommand{\vf}[1]{\fontspec[Variant=6]{Zapfino}#1}
 \newcommand{\vg}[1]{\fontspec[Variant=7]{Zapfino}#1}
-
+% La macro d'ateur proprement dite
 \newcommand{\auteur}[1]{{\hspace{-2em} \setAuthorFont{#1}}\\[1cm]}
 
-% adresse 
+% =======
+% CONTACT
+% =======
+%
+% exemple :
+% ---
+%
+% \rue{18 rue des Anciens}
+% \codePostal{012345}
+% \ville{Arkkam}
+% \telephone{(+33)1 23 45 67 89}
+% \email{lovecraft@cthulhu.com}
+%
+% \afficheContactInfos
+% ---
+%
 % batiment, rue, complementAdresse, codePostal, ville, pays
 % telephone, site, email, faxnum
 \newcommand{\batiment}[1]{\newcommand{\batimentValue}{#1}} % batiment
@@ -82,15 +116,27 @@
     \end{minipage}
 }
 
+% ============
+% PUBLICATIONS
+% ============
+% Les macros a utiliser :
+% \article et \journalentry qui prennent 5 paramètres :
+%   année
+%   titre
+%   auteur(s)
+%   conférence ou journal
+%   détails
+%
+% Pour afficher les publications en mode short
+% Il suffit de décommenter la ligne suivante
+% \newcommand{\short}{Short publications}
+
+
 % Commandes pour les publications
 \newcommand{\articleTitle}[1]{\emph{#1}}
 \newcommand{\conf}[1]{{\textcolor{red}{#1}}}
 \newcommand{\journal}[1]{\textcolor{red}{#1}}
 \newcommand{\details}[1]{{\footnotesize #1}}
-
-% A commenter pour passer en mode détaillé pour les publications
-% A décommenter pour passer en mode cours pour les publications
-% \newcommand{\short}{Short publications}
 
 % paramètres:
 %   année
@@ -128,6 +174,14 @@
     [#4~#1]
 }
 
+% ============
+% PRESENTATION
+% ============
+% une macro \deuxcolones qui permet de simuler
+% la presentation un peu comme avec un tableau
+%
+%   \deuxcolones{Total}{370 heures}
+%
 \newcommand{\deuxcolones}[2]{
 \begin{minipage}[t]{.15\linewidth}
 #1
