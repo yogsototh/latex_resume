@@ -123,11 +123,11 @@
             \fax\hspace{1em} {\texttt \faxValue}
         \else\fi
         \ifdefined\emailValue
-            \href{mailto:\emailValue}{\texttt \emailValue}
+            \href{mailto:\emailValue}{\emailValue}
         \else\fi
         \ifdefined\siteValue
             \\
-            \href{\siteValue}{ \texttt \siteValue }
+            \href{\siteValue}{\siteValue}
         \else\fi
         \end{flushright}
     \end{minipage}
@@ -177,11 +177,11 @@
 }
 
 \newcommand{\longarticle}[5]{
-    \noindent\years{#1}\begin{minipage}[t]{\linewidth}\articleTitle{#2},\\#3\\\conf{#4}, \details{#5}.\end{minipage}\smallskip\\
+    \noindent\years{#1}\begin{minipage}[t]{\linewidth}\articleTitle{#2},\\#3\\\conf{#4}, \details{#5}.\end{minipage}\smallskip
 }
 
 \newcommand{\longjournalentry}[5]{
-    \noindent\years{#1}\begin{minipage}[t]{\linewidth}\articleTitle{#2},\\#3\\\journal{#4}, \details{#5}.\end{minipage}\smallskip\\
+    \noindent\years{#1}\begin{minipage}[t]{\linewidth}\articleTitle{#2},\\#3\\\journal{#4}, \details{#5}.\end{minipage}\smallskip
 }
 
 \newcommand{\shortarticle}[5]{
