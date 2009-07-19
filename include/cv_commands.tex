@@ -26,10 +26,16 @@
 \color{darkred} 
 \fontspec[
     Ligatures={Common,Rare},
-    Variant=3,
-    Swashes={LineInitial, LineFinal}
+    Variant=3
     ]
     {Zapfino}\fontsize{30pt}{40pt}\selectfont #1}%
+\newcommand{\setFootFont}[1]{
+\color{darkred} 
+\fontspec[
+    Ligatures={Common,Rare},
+    Variant=3
+    ]
+    {Zapfino}\fontsize{10pt}{15pt}\selectfont #1}%
 % Zapfino possède de multiples variantes pour ses lettres
 % C'est pourquoi on en profite, une commande pour chaque
 % Variante. Pour modifier une lettre dans son nom
@@ -160,11 +166,11 @@
 }
 
 \newcommand{\longarticle}[5]{
-    \noindent\years{#1}\begin{minipage}[t]{\linewidth}\articleTitle{#2},\\#3\\\conf{#4}, \details{#5}\end{minipage}\smallskip\\
+    \noindent\years{#1}\begin{minipage}[t]{\linewidth}\articleTitle{#2},\\#3\\\conf{#4}, \details{#5}.\end{minipage}\smallskip\\
 }
 
 \newcommand{\longjournalentry}[5]{
-    \noindent\years{#1}\begin{minipage}[t]{\linewidth}\articleTitle{#2},\\#3\\\journal{#4}, \details{#5}\end{minipage}\smallskip\\
+    \noindent\years{#1}\begin{minipage}[t]{\linewidth}\articleTitle{#2},\\#3\\\journal{#4}, \details{#5}.\end{minipage}\smallskip\\
 }
 
 \newcommand{\shortarticle}[5]{
@@ -182,11 +188,20 @@
 %
 %   \deuxcolones{Total}{370 heures}
 %
+% on peut changer la taille des colones avec :
+% \renewcommand{\dcleftwidth}{.15\linewidth}
+% \renewcommand{\dcrightwidth}{.85\linewidth}
+%
+\newcommand{\dcleftwidth}{.25\linewidth}
+\newcommand{\dcrightwidth}{.75\linewidth}
+
 \newcommand{\deuxcolones}[2]{
-\begin{minipage}[t]{.15\linewidth}
+\begin{minipage}[t]{\dcleftwidth}
 #1
 \end{minipage}
-\begin{minipage}[t]{.85\linewidth}
+\begin{minipage}[t]{\dcrightwidth}
+\small
 #2
 \end{minipage}
+\medskip
 }

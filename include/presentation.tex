@@ -38,11 +38,20 @@
 \newcommand{\myRomanFont}{Hoefler Text}
 \newcommand{\myMonoFont}{Monaco}
 \newcommand{\mySansFont}{Optima}
-\setromanfont[Ligatures={Common,Rare}]{\myRomanFont}
+\setromanfont[Ligatures={Common,Rare},Numbers=Lining]{\myRomanFont}
 \setmonofont[Scale=0.8]{\myMonoFont} 
 \setsansfont[Scale=0.9]{\mySansFont} 
 % ---- CUSTOM AMPERSAND
 \newcommand{\amper}{{\fontspec[Scale=.95]{Hoefler Text}\selectfont\itshape\&}}
+
+% PIED DE PAGE
+\usepackage{fancyhdr,lastpage}
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{{\scriptsize mis à jour le \today}}
+\cfoot{ \vspace{-10pt} {\setFootFont \fontsize{8pt}{10pt} {\va Y}an{\vf n} {\va E}{\vb s}{\vb p}o{\vg s}{\vb i}{\va t}{\vd o}} }
+\rfoot{\arabic{page}}
 
 % HEADINGS
 \usepackage{sectsty} 
