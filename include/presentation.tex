@@ -73,10 +73,3 @@
 \definecolor{darkred}{rgb}{0.375,0,0}
 \hypersetup{linkcolor=red,citecolor=red,filecolor=black,urlcolor=red} 
 
-% français
-% probleme des : aprés le http en français
-\usepackage[english,french]{babel} % pour le français
-\selectlanguage{french}
-\let\hreforig\href
-\renewcommand{\href}[2]{\hreforig{#1}{{\texttt{\selectlanguage{english}#2}}}}
-
