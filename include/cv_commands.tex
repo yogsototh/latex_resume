@@ -110,28 +110,26 @@
 
 % Affiche l'adresse ainsi que les informations de contacts
 \newcommand{\afficheContactInfos}{
-    \begin{minipage}[t]{0.50\linewidth}
+    \begin{minipage}[t]{0.5\linewidth}
         \afficheAdresse
     \end{minipage}
-    \hfill
-    \begin{minipage}[t]{0.39\linewidth}
-        \begin{flushleft}
+    \begin{minipage}[t]{0.5\linewidth}
+        \begin{flushright}
         \ifdefined\telephoneValue
-            \Telefon\hspace{.8em}{\texttt \telephoneValue}
+            \Telefon\hspace{1em} {\texttt \telephoneValue}
         \else\fi
         \ifdefined\faxValue
             \\
-            \fax\hspace{.8em}{\texttt \faxValue}
+            \fax\hspace{1em} {\texttt \faxValue}
         \else\fi
         \ifdefined\emailValue
-            \\
-            \MVAt\hspace{.8em}\href{mailto:\emailValue}{\emailValue}
+            \href{mailto:\emailValue}{\emailValue}
         \else\fi
         \ifdefined\siteValue
             \\
-            \Mundus\hspace{.8em}\href{\siteValue}{\siteValue}
+            \href{\siteValue}{\siteValue}
         \else\fi
-        \end{flushleft}
+        \end{flushright}
     \end{minipage}
 }
 
