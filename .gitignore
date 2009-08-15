@@ -2,5 +2,6 @@
 *.log
 *.out
 *.swp
+.DS_Store
 cv.pdf
 config
