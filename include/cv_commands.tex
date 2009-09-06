@@ -97,15 +97,16 @@
     \ifdefined\batimentValue
         Bât. \batimentValue, 
     \else\fi
-        \rueValue\\
+    \rueValue\\
     \ifdefined\complementAdresseValue
-        \phantom{\addressPrefix}\complementAdresseValue \\
+        \phantom{\addressPrefix}\complementAdresseValue\\
     \else\fi
-        \phantom{\addressPrefix}\texttt{\codePostalValue}, \villeValue\ifdefined\paysValue
-    \\
+    \phantom{\addressPrefix}\texttt{\codePostalValue}, \villeValue%
+    \ifdefined\paysValue 
+        \mbox{}\\ 
         \phantom{\addressPrefix}\paysValue
     \else\fi
-    \\[.2cm]
+    \mbox{}\\[.2cm]
 }
 
 % Affiche l'adresse ainsi que les informations de contacts
@@ -120,15 +121,15 @@
             \Telefon\hspace{.8em}{\texttt \telephoneValue}
         \else\fi
         \ifdefined\faxValue
-            \\
+            \mbox{}\\
             \fax\hspace{.8em}{\texttt \faxValue}
         \else\fi
         \ifdefined\emailValue
-            \\
+            \mbox{}\\
             \MVAt\hspace{.8em}\href{mailto:\emailValue}{\emailValue}
         \else\fi
         \ifdefined\siteValue
-            \\
+            \mbox{}\\
             \Mundus\hspace{.8em}\href{\siteValue}{\siteValue}
         \else\fi
         \end{flushleft}
@@ -218,3 +219,5 @@
 \end{minipage}
 \medskip
 }
+
+\newcommand{\bsc}[1]{\textsc{#1}}
